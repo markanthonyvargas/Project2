@@ -34,12 +34,13 @@ List of features ready
 3. Once imported, you will have to configure your IDE so that your project uses An Apache Tomcat V9 server. Make sure this server is using port 9005.
 4. The FrontEnd project must be installed using NodeJS. In Visual Studio Code, open a new terminal and make the socialturtle folder in the FrontEnd folder is the current directory.
 5. Run the "npm install" command inside the terminal to install the React project.
-6. Before starting your Tomcat server, edit the "log4j.properties" file found in src/main/resources so that "log4j.appender.file.File" property matches a directory on your machine.
-7. This project uses system environment variables in the "applicationContext.xml" to connect to a database. These will have to be changed to match your database credentials
-8. Once your Tomcat server is running, head back to Visual Studio Code and run the "npm start" command to start your React project.
+6. Make sure to enter your AWS S3 credentials inside the "MakeAPostComponent.jsx" and "UserProfile.jsx" files found in FrontEnd/socialturtle/DisplayComponents
+7. Before starting your Tomcat server, edit the "log4j.properties" file found in src/main/resources so that "log4j.appender.file.File" property matches a directory on your machine.
+8. This project uses system environment variables in the "applicationContext.xml" to connect to a database. These will have to be changed to match your database credentials
+9. Once your Tomcat server is running, head back to Visual Studio Code and run the "npm start" command to start your React project.
 
 ## Usage
 
 Once the project is ready and the server is running, when the React app is finished starting, the app will open inside your default web browser. If you already have users inserted inside your database you can log in with an existing user; otherwise you will have to register as a new user.
 
-NOTE: For security purpose this project uses system enviornment variables for JDBC. You will have to enter your own credentials for your database inside the "applicationContext.xml" file found in src/main/resources inside the BackEnd project. You will also have to edit the "log4j.properties" file as described in step 6 of "Getting Started"
+NOTE: For security purpose this project uses system enviornment variables for JDBC. You will have to enter your own credentials for your database inside the "applicationContext.xml" file found in src/main/resources inside the BackEnd project. You will also have to edit the "log4j.properties" file as described in step 7 of "Getting Started". You will also need to enter your own AWS S3 credentials as detailed in step 6.
