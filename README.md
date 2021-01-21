@@ -2,7 +2,7 @@
 
 ## Project Description
 
-The Social Turtle is a social media website where users can create posts and interact with other user's posts. Posts are able to contain images if the user wishes, and users can like posts as well. Users can customize their profile picture and other details about themselves.
+The Social Turtle is a social media website where users can create posts and interact with other user's posts. Posts are able to contain images if the user wishes, and users can like posts as well. Users can customize their profile picture and other details about themselves. This application was made by a team consisting of Nicholas Deters, Andrew Kellar, William Stone, Mark Anthony Vargas (me), and Justin Wen.
 
 ## Technologies Used
 
