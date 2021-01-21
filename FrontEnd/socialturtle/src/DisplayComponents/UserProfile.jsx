@@ -16,12 +16,13 @@ const UserProfile = () => {
     let key = ''
     let uploadUrl = ''
 
+    //You will need to provide your own AWS S3 credentials
     const config = {
-        bucketName: 'project2buckethtfg',
-        dirName: 'photos', /* optional */
-        region: 'us-east-1',
-        accessKeyId: 'AKIAYUGLMRZFKEIBNV7X',
-        secretAccessKey: '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',
+        bucketName: '',
+        dirName: '', /* optional */
+        region: '',
+        accessKeyId: '',
+        secretAccessKey: '',
     }
 
     const user = useSelector(state => state.LocalUser);
