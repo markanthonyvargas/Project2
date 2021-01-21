@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- This turns on context annotations like stereotypes and autowired -->
+	<context:annotation-config />
+
+	<!-- This denotes which packages Spring will scan -->
+	<context:component-scan base-package="com" />
+
+	<!-- This turns on orm/transaction annotations -->
+ 	<tx:annotation-driven />
+
+
+	<!-- This turns on web mvc annotations -->
+	<mvc:annotation-driven />
+	
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
+	<tx:annotation-driven proxy-target-class="true"
+        transaction-manager="transactionManager" />
+
+	<!-- DATASOURCE Datasource is an object that holds all the attributes necessary 
+		to connect to your database -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName"
+			value="org.postgresql.Driver" />
+		<property name="url"
+			value="#{'jdbc:postgresql://'+systemEnvironment['AWSDB']+'/Social_Media'}" />
+		<property name="username" value="#{systemEnvironment['AWSUSE']}" />
+		<property name="password"
+			value="#{systemEnvironment['AWSPASS']}" />
+	</bean>
+
+	<!-- SESSION FACTORY SessionFactory is an object that is responsible for 
+		creating Hibernate sessions -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.models" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.PostgreSQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- TRANSACTION MANAGER This bean is responsible for managing your transactions 
+		(big surprise) AND also manages our contextual sessions What are contextual 
+		sessions? Session with information SPECIFIC to each user. They make it so 
+		that each user ONLY SEES THEIR INFORMATION, not someone else's. -->
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

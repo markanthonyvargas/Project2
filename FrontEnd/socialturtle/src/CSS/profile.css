@@ -1,0 +1,45 @@
+#profile-background {
+    background-size: cover;
+}
+
+#update-user-form {
+    margin-top: 10rem;
+}
+
+#password-form {
+    margin-top: 10rem;
+}
+
+body {
+    background: #0f0c29; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0f0c29, #302b63, #24243e); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#profile-header {
+    color: rgb(104, 139, 184)
+}
+#profile-upload-footer {
+    background-color: rgba(104, 139, 184,.3)!important;
+    
+    
+}
+#upload-picture-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+#show-posts-btn {
+    background-color: rgb(104, 139, 184)!important;
+}
+#post-prof-img {
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+}
+#profile-upload-alert {
+    position: fixed;
+    bottom: 1;
+    right: 1;
+   
+}
